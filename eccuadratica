@@ -1,0 +1,30 @@
+import math
+def sol_dist(a : int, b : int, disc:int) : 
+    x0 = math.sqrt(disc)
+    x1 = str( round((-b + x0) / (2 * a), 2) )
+    x2 = str( round((-b - x0) / (2 * a), 2) )
+    return x1 + ', ' + x2
+
+def sol_igual(a : int, b : int) : 
+    calc = str( round(- b / (2 * a), 2))
+    return calc
+
+def calc_cuad_disc(a : int, b : int, c : int) :
+    disc = b ** 2 - (4 * a * c)
+    if disc > 0 :
+        res = sol_dist(a, b, disc)
+    elif disc == 0 : 
+        res = sol_igual(a, b)
+    else :
+        res = 'La ecuación no tiene solución real'
+    return res
+
+def main() :
+    print('Solucion de ecuaciones cuadráticas')
+    c1 = int(input('Digite el coeficiente 1 de la ecuación: '))
+    c2 = int(input('Digite el coeficiente 2 de la ecuación: '))
+    c3 = int(input('Digite el coeficiente 3 de la ecuación: '))
+    solucion = calc_cuad_disc(c1, c2, c3)
+    print(f'Solución de la ecuación: {solucion}')
+
+main()
